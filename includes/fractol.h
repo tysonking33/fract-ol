@@ -13,6 +13,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+#include <unistd.h>
+
 typedef struct s_colour
 {
 	int	red;

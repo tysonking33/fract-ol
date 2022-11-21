@@ -39,4 +39,8 @@ int main(int argc, char **argv)
 		frac = (t_fractol *)malloc(sizeof(t_fractol));
 		create_frac(frac);
 		if (!frac)
-			
+			error();
+		frac->var.frac_type = check_type(argv[1]);
+		display_instructions(argv[1], frac);
+		
+
