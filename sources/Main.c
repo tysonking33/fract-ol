@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:06:10 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/21 13:58:30 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/21 15:02:10 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,8 @@ int main(int argc, char **argv)
 		frac = (t_fractol *)malloc(sizeof(t_fractol));
 		create_frac(frac);
 		if (!frac)
-			
+			error();
+		frac->var.frac_type = check_type(argv[1]);
+		if (frac->var.frac_type == 0)
+		{
+			display_instructions(argv[1], frac->var.frac_type);		
