@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../mlx/mlx.h"
+#include "../includes/fractol.h"
+#include "../includes/keys.h"
+
 void create_frac(t_fractol *frac)
 {
 	frac->clr.red = 6;
@@ -40,9 +44,11 @@ int main(int argc, char **argv)
 		create_frac(frac);
 		if (!frac)
 			error();
-		frac->var.frac_type = check_type(argv[1]);
-		display_instructions(argv[1], frac);
-		
+		frac->var.frac_type = check_type(frac, argv[1]);
+		display_instructions(frac);
+		frac->mlx.win = mlx_new_window(frac->mlx.init, WIDTH, HEIGHT, argv[1]);
+	}
+}
 
 
 			error();
