@@ -14,6 +14,8 @@
 # define FRACTOL_H
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_colour
 {
@@ -36,6 +38,8 @@ typedef struct s_variable
 	double	max_r;
 	double	kr;
 	double	ki;
+	int frac_type;
+	char frac_name;
 }				t_variable;
 
 typedef struct s_image
@@ -47,6 +51,7 @@ typedef struct s_image
 typedef struct s_mlx
 {
 	void	*init;
+	void	*win;
 }				t_mlx;
 
 typedef struct s_fractol
