@@ -41,6 +41,12 @@ int main(int argc, char **argv)
 		if (!frac)
 			error();
 		frac->var.frac_type = check_type(argv[1]);
+		display_instructions(argv[1], frac);
+		
+
+
+			error();
+		frac->var.frac_type = check_type(argv[1]);
 		if (frac->var.frac_type == 0)
 		{
 			display_instructions(argv[1], frac->var.frac_type);		
