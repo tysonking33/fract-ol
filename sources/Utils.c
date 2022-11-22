@@ -41,14 +41,6 @@ int check_type(t_fractol *frac, char *type)
 void display_instructions(void *param)
 {
 	param = NULL;
-	if (frac->var.frac_type == 0)
-		ft_putstr_fd("invalid syntax");
-	else if (frac->var.frac_type >= 1)
-	{
-		ft_putstr_fd("current_fractol:");
-		ft_putstr_fd(frac->var.frac_name);
-	}
-
 	//insert instructions
 
 }
