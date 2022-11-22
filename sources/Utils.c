@@ -52,3 +52,26 @@ void display_instructions(t_fractol *frac)
 	//insert instructions
 
 }
+
+void draw(t_fractol *frac, int x_coord, int y_coord, int colour)
+{
+	int pixel;
+
+	if (frac->img.bits_per_pxl != 32)
+		colour = mlx_get_color_value(frac->mlx.init, colour);
+	pixel = ((y_coord * frac->img.line_size) + x_coord * 4);
+	if (frac->img.endian == 1)
+	{
+		frac->img.data[pixel + 0] = (colour >> 24);
+		frac->img.data[pixel + 1] = (colour >> 16) & 0xFF;
+		frac->img.data[pixel + 2] = (colour >> 8) & 0xFF;
+		frac->img.data[pixel + 3] = (colour) & 0xFF;
+	}
+	else if (frac->img.endian == 0)
+	{
+		frac->img.data[pixel + 3] = (colour >> 24);
+		frac->img.data[pixel + 2] = (colour >> 16) & 0xFF;
+		frac->img.data[pixel + 1] = (colour >> 8) & 0xFF;
+		frac->img.data[pixel + 0] = (colour) & 0xFF;
+	}
+}
