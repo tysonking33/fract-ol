@@ -14,6 +14,14 @@
 #include "../includes/fractol.h"
 #include "../includes/keys.h"
 
+void start_frac(t_fractol *frac)
+{
+	int colour;
+
+	colour = 0;
+	draw_fractol(frac, colour);
+}
+
 void create_frac(t_fractol *frac)
 {
 	frac->clr.red = 6;
@@ -47,6 +55,11 @@ int main(int argc, char **argv)
 		frac->var.frac_type = check_type(frac, argv[1]);
 		display_instructions(frac);
 		frac->mlx.win = mlx_new_window(frac->mlx.init, WIDTH, HEIGHT, argv[1]);
+		frac->img.image = mlx_new_image(frac->mlx.init, WIDTH, HEIGHT);
+		frac->img.data = mlx_get_data_addr(frac->img.image, &frac->img.bits_per_pxl, &frac->img.line_size
+					, &frac->img.endian);
+		start_frac(frac);
+		
 	}
 }
 

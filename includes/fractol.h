@@ -45,14 +45,20 @@ typedef struct s_variable
 
 typedef struct s_image
 {
-	int	colour;
 	void	*image;
+	char	*data;
+	int		bits_per_pxl;
+	int		line_size;
+	int		endian;
+	int		end;
+	int		colour;
 }				t_image;
 
 typedef struct s_mlx
 {
 	void	*init;
 	void	*win;
+	char	*data;
 }				t_mlx;
 
 typedef struct s_fractol
@@ -62,6 +68,7 @@ typedef struct s_fractol
 	t_variable	var;
 	t_image	img;
 	t_mlx	mlx;
+	
 }			t_fractol;
 
 #endif
