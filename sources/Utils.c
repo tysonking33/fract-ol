@@ -38,9 +38,9 @@ int check_type(t_fractol *frac, char *type)
 		return 0;
 }
 
-void display_instructions(t_fractol *frac)
+void display_instructions(void *param)
 {
-
+	param = NULL;
 	if (frac->var.frac_type == 0)
 		ft_putstr_fd("invalid syntax");
 	else if (frac->var.frac_type >= 1)
