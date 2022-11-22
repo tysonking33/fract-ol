@@ -71,4 +71,16 @@ typedef struct s_fractol
 	
 }			t_fractol;
 
+int main(int argc, char **argv);
+void create_frac(t_fractol *frac);
+void start_frac(t_fractol *frac);
+void	error(void);
+int check_type(t_fractol *frac, char *type);
+void display_instructions(void *param);
+void draw(t_fractol *frac, int x_coord, int y_coord, int colour);
+int mouseevent(t_fractol *frac, int mouse, int x_coord, int y_coord);
+void zoom(t_fractol *frac, double multi);
+int keyevent(t_fractol *frac, int key);
+void move(t_fractol *frac, int key);
+
 #endif

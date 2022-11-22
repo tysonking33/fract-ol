@@ -61,7 +61,12 @@ int main(int argc, char **argv)
 		start_frac(frac);
 
 		mlx_hook(frac->mlx.init, 4,3, mouseevent, frac);
+		mlx_hook(frac->mlx.init, 2,3, keyevent, frac);
+		mlx_hook(frac->mlx.init, 17,3, display_instructions, frac);
+		mlx_loop(frac->mlx.init);
 	}
+	frac = NULL;
+	display_instructions(frac);
 }
 
 

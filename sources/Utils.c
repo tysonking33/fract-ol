@@ -129,6 +129,7 @@ void display_instructions(char *type_name, int type )
 void draw(t_fractol *frac, int x_coord, int y_coord, int colour)
 {
 	int pixel;
+	//insert instructions
 
 	if (frac->img.bits_per_pxl != 32)
 		colour = mlx_get_color_value(frac->mlx.init, colour);
