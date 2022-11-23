@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:41:30 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/21 13:43:50 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/23 13:56:07 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,34 @@ void	error(void)
 	exit(0);
 }
 
-int check_type(t_fractol *frac, char *type)
+int	check_type(t_fractol *frac, char *type)
 {
 	if ((type[0] == 'm') || (type[0] == 'M'))
 	{
-		frac->var.frac_name = (char *)malloc(11*sizeof(char));
+		frac->var.frac_name = (char *) malloc (11 * sizeof (char));
 		frac->var.frac_name = "Mandlebrot";
-		return 1;
+		return (1);
 	}
 	else if ((type[0] == 'j') || (type[0] == 'J'))
 	{
-		frac->var.frac_name = (char *)malloc(6*sizeof(char));
+		frac->var.frac_name = (char *) malloc (6 * sizeof (char));
 		frac->var.frac_name = "Julia";
-		return 2;
+		return (2);
 	}
 	else
-		return 0;
+		return (0);
 }
 
-int display_instructions(void *param)
+int	display_instructions(void *param)
 {
 	param = NULL;
-	//insert instructions
-
 	printf("%p", param);
-
 	exit (0);
 }
 
-void draw(t_fractol *frac, int x_coord, int y_coord, int colour)
+void	draw(t_fractol *frac, int x_coord, int y_coord, int colour)
 {
-	int pixel;
+	int	pixel;
 
 	if (frac->img.bits_per_pxl != 32)
 		colour = mlx_get_color_value(frac->mlx.init, colour);
