@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:06:10 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/23 14:01:16 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:31:54 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 {
 	t_fractol	*frac;
 	
-	write(STDOUT_FILENO, "\e[1;1H\e[2J", 12);
+	//write(STDOUT_FILENO, "\e[1;1H\e[2J", 12);
 
 	if (argc == 2)
 	{
@@ -52,8 +52,9 @@ int main(int argc, char **argv)
 		create_frac(frac);
 		if (!frac)
 			error();
-		frac->var.frac_type = check_type(frac, argv[1]);
-		display_instructions(frac->mlx.init);
+		frac->var.frac_type = check_type(argv[1]);
+		if (!(frac->var.frac_type))
+			display_instructions(frac->mlx.init);
 		frac->mlx.win = mlx_new_window(frac->mlx.init, WIDTH, HEIGHT, argv[1]);
 		frac->img.image = mlx_new_image(frac->mlx.init, WIDTH, HEIGHT);
 		frac->img.data = mlx_get_data_addr(frac->img.image, &frac->img.bits_per_pxl, &frac->img.line_size

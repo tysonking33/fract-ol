@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:41:30 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/23 13:56:07 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:26:48 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,19 @@ void	error(void)
 	exit(0);
 }
 
-int	check_type(t_fractol *frac, char *type)
+int	check_type(char *type)
 {
 	if ((type[0] == 'm') || (type[0] == 'M'))
-	{
-		frac->var.frac_name = (char *) malloc (11 * sizeof (char));
-		frac->var.frac_name = "Mandlebrot";
 		return (1);
-	}
 	else if ((type[0] == 'j') || (type[0] == 'J'))
-	{
-		frac->var.frac_name = (char *) malloc (6 * sizeof (char));
-		frac->var.frac_name = "Julia";
 		return (2);
-	}
 	else
 		return (0);
 }
 
 int	display_instructions(void *param)
 {
+	printf("%p", param);
 	param = NULL;
 	printf("%p", param);
 	exit (0);

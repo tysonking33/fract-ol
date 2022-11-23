@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:44:45 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/23 15:33:51 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:08:15 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_variable
 	double	kr;
 	double	ki;
 	int		frac_type;
-	char	*frac_name;
 }				t_variable;
 
 typedef struct s_image
@@ -73,7 +72,7 @@ int		main(int argc, char **argv);
 void	create_frac(t_fractol *frac);
 void	start_frac(t_fractol *frac);
 void	error(void);
-int		check_type(t_fractol *frac, char *type);
+int		check_type(char *type);
 int		display_instructions(void *param);
 void	draw(t_fractol *frac, int x_coord, int y_coord, int colour);
 int		mouseevent(t_fractol *frac, int mouse, int x_coord, int y_coord);
