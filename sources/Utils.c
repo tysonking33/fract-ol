@@ -38,11 +38,12 @@ int check_type(t_fractol *frac, char *type)
 		return 0;
 }
 
-void display_instructions(void *param)
+int display_instructions(void *param)
 {
 	param = NULL;
 	//insert instructions
 
+	exit (0);
 }
 
 void draw(t_fractol *frac, int x_coord, int y_coord, int colour)

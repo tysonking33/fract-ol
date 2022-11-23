@@ -12,10 +12,10 @@
 
 NAME = fractol
 CC = gcc
-FLAGES = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
-LINKS = -I./inlcudes -L./libft -lft -L./mlx -lmlx -framework OpenGL \
-		-framework Appkit
+LINKS = -I./includes -L./libft -lft -L./mlx -lmlx -framework OpenGL \
+	   	-framework Appkit
 
 SRCS_DIR = sources/
 
@@ -42,7 +42,7 @@ clean:
 	@$(MAKE) -C ./libft clean
 	@$(MAKE) -C ./mlx clean
 
-fclean: clean
+fclean:	clean
 	rm -f $(NAME)
 	@$(MAKE) -C ./libft fclean
 
