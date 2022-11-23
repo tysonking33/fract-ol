@@ -43,6 +43,8 @@ int display_instructions(void *param)
 	param = NULL;
 	//insert instructions
 
+	printf("%p", param);
+
 	exit (0);
 }
 

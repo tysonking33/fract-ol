@@ -81,5 +81,6 @@ int mouseevent(t_fractol *frac, int mouse, int x_coord, int y_coord);
 void zoom(t_fractol *frac, double multi);
 int keyevent(t_fractol *frac, int key);
 void move(t_fractol *frac, int key);
+void draw_fractol(t_fractol *frac, int colour);
 
 #endif
