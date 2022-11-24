@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Mandlebrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/23 13:56:14 by tytang            #+#    #+#             */
+/*   Updated: 2022/11/24 16:16:26 by tytang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../mlx/mlx.h"
 #include "../includes/fractol.h"
 #include "../includes/keys.h"
@@ -11,7 +23,7 @@ void draw_fractol(t_fractol *frac, int colour)
 
     y_coord = -1;
 
-    while(++y_coord < HEIGHT)
+	while(++y_coord < HEIGHT)
     {
         x_coord = -1;
         while (++x_coord < WIDTH)
@@ -25,9 +37,9 @@ void draw_fractol(t_fractol *frac, int colour)
                 colour = julia(frac, real_z, img_z);
 
             draw(frac, x_coord, y_coord, colour);
-        }
+		}
     }
-    mlx_put_image_to_window(frac->mlx.init, frac->mlx.win, frac->img.image, 0, 0);
+	mlx_put_image_to_window(frac->mlx.init, frac->mlx.win, frac->img.image, 0, 0);
 }
 
 int mandelbrot(t_fractol *frac, double real_z, double img_z)
@@ -53,38 +65,33 @@ int mandelbrot(t_fractol *frac, double real_z, double img_z)
         real_c = real_c * real_c - img_c * img_c + real_z;
         img_c = temp_real_i;
     }
-    if (in_set == 0)
+
+    if (in_set == 1)
         return (frac->img.end);
-    else if (in_set == 1)
-        return (((frac->img.colour - frac->img.end) * iter_ctr / 80) + frac->img.end);
+    return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
 }
 
 int julia(t_fractol *frac, double real_z, double img_z)
 {
     int iter_ctr;
-    double real_c;
-    double img_c;
     double temp_real_i;
     int in_set;
 
     iter_ctr = -1;
-    real_c = 0;
-    img_c = 0;
     in_set = 1;
     while(++iter_ctr < MAX_ITERATIONS)
     {
-        if ((real_c * real_c + img_c * img_c) > 4.0)
+        if ((real_z * real_z + img_z * img_z) > 4.0)
         {
             in_set = 0;
             break;
         }
-        temp_real_i = 2 * real_c * img_c + frac->var.ki;
-        real_c = real_c * real_c - img_c * img_c + frac->var.kr;
-        img_c = temp_real_i;
+        temp_real_i = 2 * real_z * img_z + frac->var.ki;
+        real_z = real_z * real_z - img_z * img_z + frac->var.kr;
+        img_z = temp_real_i;
     }
 
-    if (in_set == 0)
+    if (in_set == 1)
         return (frac->img.end);
-    else if (in_set == 1)
-        return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
+    return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
 }

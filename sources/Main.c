@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:06:10 by tytang            #+#    #+#             */
 /*   Updated: 2022/11/21 15:02:10 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/24 16:15:50 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +38,7 @@ void create_frac(t_fractol *frac)
 	frac->var.ki = -0.6464;
 	frac->mlx.init = mlx_init();
 	frac->img.colour = 0x0001dd;
+	frac->img.end = 0x000000;
 	frac->img.image = mlx_new_image(frac->mlx.init, WIDTH, HEIGHT);
 }
 
@@ -45,28 +47,30 @@ int main(int argc, char **argv)
 	t_fractol	*frac;
 	
 	write(STDOUT_FILENO, "\e[1;1H\e[2J", 12);
-
 	if (argc == 2)
 	{
 		frac = (t_fractol *)malloc(sizeof(t_fractol));
 		create_frac(frac);
 		if (!frac)
 			error();
-		frac->var.frac_type = check_type(frac, argv[1]);
-		display_instructions(frac->mlx.init);
+		frac->var.frac_type = check_type(argv[1]);
+		if (!(frac->var.frac_type))
+			display_instructions(frac->mlx.init);
+        frac->mlx.init = mlx_init();
 		frac->mlx.win = mlx_new_window(frac->mlx.init, WIDTH, HEIGHT, argv[1]);
 		frac->img.image = mlx_new_image(frac->mlx.init, WIDTH, HEIGHT);
 		frac->img.data = mlx_get_data_addr(frac->img.image, &frac->img.bits_per_pxl, &frac->img.line_size
 					, &frac->img.endian);
 		start_frac(frac);
 
-		mlx_hook(frac->mlx.init, 4,3, mouseevent, frac);
-		mlx_hook(frac->mlx.init, 2,3, keyevent, frac);
-		mlx_hook(frac->mlx.init, 17,3, display_instructions, frac);
+		mlx_hook(frac->mlx.win, 4,3, mouseevent, frac);
+		mlx_hook(frac->mlx.win, 2,3, keyevent, frac);
+		mlx_hook(frac->mlx.win, 17,3, display_instructions, frac);
 		mlx_loop(frac->mlx.init);
 	}
 	frac = NULL;
 	display_instructions(frac);
+    free(frac);
 }
 
 
@@ -75,3 +79,4 @@ int main(int argc, char **argv)
 		if (frac->var.frac_type == 0)
 		{
 			display_instructions(argv[1], frac->var.frac_type);		
+
