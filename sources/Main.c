@@ -43,7 +43,7 @@ void create_frac(t_fractol *frac)
 
 int main(int argc, char **argv)
 {
-	t_fractol	*frac;
+	t_fractol *frac;
 
 	write(STDOUT_FILENO, "\e[1;1H\e[2J", 12);
 	if (argc == 2)
@@ -55,19 +55,18 @@ int main(int argc, char **argv)
 		frac->var.frac_type = check_type(argv[1]);
 		if (!(frac->var.frac_type))
 			display_instructions(frac->mlx.init);
-        frac->mlx.init = mlx_init();
+		frac->mlx.init = mlx_init();
 		frac->mlx.win = mlx_new_window(frac->mlx.init, WIDTH, HEIGHT, argv[1]);
 		frac->img.image = mlx_new_image(frac->mlx.init, WIDTH, HEIGHT);
-		frac->img.data = mlx_get_data_addr(frac->img.image, &frac->img.bits_per_pxl, &frac->img.line_size
-					, &frac->img.endian);
+		frac->img.data = mlx_get_data_addr(frac->img.image, &frac->img.bits_per_pxl, &frac->img.line_size, &frac->img.endian);
 		start_frac(frac);
 
-		mlx_hook(frac->mlx.win, 4,3, mouseevent, frac);
-		mlx_hook(frac->mlx.win, 2,3, keyevent, frac);
-		mlx_hook(frac->mlx.win, 17,3, display_instructions, frac);
+		mlx_hook(frac->mlx.win, 4, 3, mouseevent, frac);
+		mlx_hook(frac->mlx.win, 2, 3, keyevent, frac);
+		mlx_hook(frac->mlx.win, 17, 3, display_instructions, frac);
 		mlx_loop(frac->mlx.init);
 	}
 	frac = NULL;
 	display_instructions(frac);
-    free(frac);
+	free(frac);
 }

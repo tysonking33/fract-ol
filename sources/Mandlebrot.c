@@ -23,7 +23,7 @@ void draw_fractol(t_fractol *frac, int colour)
 
     y_coord = -1;
 
-	while(++y_coord < HEIGHT)
+    while (++y_coord < HEIGHT)
     {
         x_coord = -1;
         while (++x_coord < WIDTH)
@@ -37,9 +37,9 @@ void draw_fractol(t_fractol *frac, int colour)
                 colour = julia(frac, real_z, img_z);
 
             draw(frac, x_coord, y_coord, colour);
-		}
+        }
     }
-	mlx_put_image_to_window(frac->mlx.init, frac->mlx.win, frac->img.image, 0, 0);
+    mlx_put_image_to_window(frac->mlx.init, frac->mlx.win, frac->img.image, 0, 0);
 }
 
 int mandelbrot(t_fractol *frac, double real_z, double img_z)
@@ -54,7 +54,7 @@ int mandelbrot(t_fractol *frac, double real_z, double img_z)
     real_c = 0;
     img_c = 0;
     in_set = 1;
-    while(++iter_ctr < MAX_ITERATIONS)
+    while (++iter_ctr < MAX_ITERATIONS)
     {
         if ((real_c * real_c + img_c * img_c) > 4.0)
         {
@@ -78,7 +78,7 @@ int julia(t_fractol *frac, double real_z, double img_z)
 
     iter_ctr = -1;
     in_set = 1;
-    while(++iter_ctr < MAX_ITERATIONS)
+    while (++iter_ctr < MAX_ITERATIONS)
     {
         if ((real_z * real_z + img_z * img_z) > 4.0)
         {

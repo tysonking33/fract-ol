@@ -16,37 +16,38 @@
 
 int mouseevent(int mouse, int x_coord, int y_coord, t_fractol *frac)
 {
-    x_coord = 0;
-    y_coord = 0;
-    if (mouse == SCROLL_UP)
-        zoom(frac, 0.8);
-    else if (mouse == SCROLL_DOWN)
-        zoom(frac, 1.25);
-    else if (mouse == LEFT_CLK)
-        frac->img.colour = frac->img.colour * 2;
-    else if (mouse ==  RIGHT_CLK)
-        frac->img.colour = frac->img.colour / 2;
-    else if (mouse ==  MIDDLE_CLK)
-        frac->img.colour = frac->img.colour + 0x777777;
-    start_frac(frac);
-    return(1);
+	x_coord = 0;
+	y_coord = 0;
+	
+	if (mouse == SCROLL_UP)
+		zoom(frac, 0.8);
+	else if (mouse == SCROLL_DOWN)
+		zoom(frac, 1.25);
+	else if (mouse == LEFT_CLK)
+		frac->img.colour = frac->img.colour * 2;
+	else if (mouse == RIGHT_CLK)
+		frac->img.colour = frac->img.colour / 2;
+	else if (mouse == MIDDLE_CLK)
+		frac->img.colour = frac->img.colour + 0x777777;
+	start_frac(frac);
+	return (1);
 }
 
 void zoom(t_fractol *frac, double multi)
 {
-    frac->var.min_r = frac->var.max_r + multi * (frac->var.min_r - frac->var.max_r);
-    frac->var.max_r = frac->var.max_r + ((frac->var.min_r - frac->var.max_r) - multi
-            * (frac->var.min_r - frac->var.max_r)) / 2;
-    frac->var.min_i = frac->var.max_i + multi * (frac->var.min_i - frac->var.max_i);
-    frac->var.max_i = frac->var.max_i + ((frac->var.min_i - frac->var.max_i) - multi
-            * (frac->var.min_i - frac->var.max_i)) / 2;
+	frac->var.min_r = frac->var.max_r + multi * (frac->var.min_r - frac->var.max_r);
+	frac->var.max_r = frac->var.max_r + ((frac->var.min_r - frac->var.max_r) - multi 
+			* (frac->var.min_r - frac->var.max_r)) / 2;
+	frac->var.min_i = frac->var.max_i + multi * (frac->var.min_i - frac->var.max_i);
+	frac->var.max_i = frac->var.max_i + ((frac->var.min_i - frac->var.max_i) - multi 
+			* (frac->var.min_i - frac->var.max_i)) / 2;
 }
 
-int	keyevent(int key, t_fractol *frac)
+int keyevent(int key, t_fractol *frac)
 {
 	if ((key == KEY_ANSI_W) || (key == KEY_ANSI_A) || (key == KEY_ANSI_S) ||
-        (key == KEY_ANSI_D) || (key == KEY_UP) || (key == KEY_LEFT) ||
-        (key == KEY_DOWN) || (key == KEY_RIGHT) || (key == KEY_ESCAPE))
+		(key == KEY_ANSI_D) || (key == KEY_UP) || (key == KEY_LEFT) ||
+		(key == KEY_DOWN) || (key == KEY_RIGHT) || (key == KEY_ESCAPE))
 		move(frac, key);
 	else if (key == KEY_ANSI_Z)
 		zoom(frac, 0.95);
@@ -71,9 +72,9 @@ int	keyevent(int key, t_fractol *frac)
 	return (1);
 }
 
-void	move(t_fractol *frac, int key)
+void move(t_fractol *frac, int key)
 {
-	double	dist;
+	double dist;
 
 	dist = 0.07;
 	if ((key == KEY_ANSI_W) || (key == KEY_UP))

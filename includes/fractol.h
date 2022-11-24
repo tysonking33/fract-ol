@@ -80,7 +80,7 @@ void	zoom(t_fractol *frac, double multi);
 int		keyevent(int key, t_fractol *frac);
 void	move(t_fractol *frac, int key);
 void	draw_fractol(t_fractol *frac, int colour);
-int mandelbrot(t_fractol *frac, double real_z, double img_z);
-int julia(t_fractol *frac, double real_z, double img_z);
+int		mandelbrot(t_fractol *frac, double real_z, double img_z);
+int		julia(t_fractol *frac, double real_z, double img_z);
 
 #endif
