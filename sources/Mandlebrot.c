@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:56:14 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/23 15:50:32 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/24 13:16:20 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void draw_fractol(t_fractol *frac, int colour)
             draw(frac, x_coord, y_coord, colour);
         }
     }
-    mlx_put_image_to_window(frac->mlx.init, frac->mlx.win, frac->img.image, 0, 0);
+    mlx_put_image_to_window(frac->mlx.init, frac->mlx.win, frac->img.data, 0, 0);
 }
 
 int mandelbrot(t_fractol *frac, double real_z, double img_z)

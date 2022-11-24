@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	t_fractol	*frac;
 	
 	//write(STDOUT_FILENO, "\e[1;1H\e[2J", 12);
-
+    frac = malloc(sizeof(t_fractol));
 	if (argc == 2)
 	{
 		frac = (t_fractol *)malloc(sizeof(t_fractol));
@@ -55,6 +55,7 @@ int main(int argc, char **argv)
 		frac->var.frac_type = check_type(argv[1]);
 		if (!(frac->var.frac_type))
 			display_instructions(frac->mlx.init);
+        frac->mlx.init = mlx_init();
 		frac->mlx.win = mlx_new_window(frac->mlx.init, WIDTH, HEIGHT, argv[1]);
 		frac->img.image = mlx_new_image(frac->mlx.init, WIDTH, HEIGHT);
 		frac->img.data = mlx_get_data_addr(frac->img.image, &frac->img.bits_per_pxl, &frac->img.line_size
@@ -68,4 +69,5 @@ int main(int argc, char **argv)
 	}
 	frac = NULL;
 	display_instructions(frac);
+    free(frac);
 }
