@@ -135,7 +135,7 @@ void draw(t_fractol *frac, int x_coord, int y_coord, int colour)
 	ft_putstr("		zoom in: Scroll Down, x	");
 	ft_putstr("		zoom out: Scroll UP, z	");
 	ft_putstr("		move: A,W,D,S OR Up, Down, Left,Right	");
-	t_putstr("		change colour: Left, Right mouse click, OR c	");
+	ft_putstr("		change colour: Left, Right mouse click, OR c	");
 	ft_putstr("		exit program: ESC	");
 
 
