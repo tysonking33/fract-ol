@@ -37,11 +37,16 @@ int	display_instructions(void *param)
 	counter = 0;
 	param = NULL;
 
-	//while (++counter < 10)
-	//	ft_putstr("           ");
+	while (++counter < 10)
+		ft_putstr("           ");
 
-	//ft_putstr("			");
-
+	ft_putstr("		To create a fractol: ./fractol <fractol_name>	");
+	ft_putstr("		available fractols: Mandelbrot, Julia");
+	ft_putstr("		zoom in: SCROLL DOWN OR x");
+	ft_putstr("		zoom out: SCROLL UP OR z");
+	ft_putstr("		move: W,A,S,D OR, Up, Down, Left and Right keys");
+	ft_putstr("		chang colours: Left/RIGHT/MIDDLE mouse click");
+	
 	exit (0);
 }
 
