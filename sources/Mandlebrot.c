@@ -65,10 +65,9 @@ int mandelbrot(t_fractol *frac, double real_z, double img_z)
         real_c = real_c * real_c - img_c * img_c + real_z;
         img_c = temp_real_i;
     }
-
     if (in_set == 1)
         return (frac->img.end);
-    return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
+	return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
 }
 
 int julia(t_fractol *frac, double real_z, double img_z)
@@ -93,5 +92,5 @@ int julia(t_fractol *frac, double real_z, double img_z)
 
     if (in_set == 1)
         return (frac->img.end);
-    return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
+	return (((frac->img.colour - frac->img.end) * iter_ctr / MAX_ITERATIONS) + frac->img.end);
 }

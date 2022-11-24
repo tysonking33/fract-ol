@@ -6,8 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:44:45 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/21 14:42:02 by tytang           ###   ########.fr       */
-/*   Updated: 2022/11/24 14:46:27 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/24 17:21:23 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +38,6 @@ typedef struct s_variable
 	double	max_r;
 	double	kr;
 	double	ki;
-	int	frac_type;
-	int frac_type;
-	char *frac_name;
 	int		frac_type;
 }				t_variable;
 

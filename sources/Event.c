@@ -6,7 +6,7 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:31:48 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/24 16:40:44 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/24 17:04:30 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void zoom(t_fractol *frac, double multi)
 
 int	keyevent(int key, t_fractol *frac)
 {
-	if ((key == KEY_ANSI_W) || (key == KEY_ANSI_A) || (key == KEY_ANSI_S) || 
-        (key == KEY_ANSI_D) || (key == KEY_UP) || (key == KEY_LEFT) || 
+	if ((key == KEY_ANSI_W) || (key == KEY_ANSI_A) || (key == KEY_ANSI_S) ||
+        (key == KEY_ANSI_D) || (key == KEY_UP) || (key == KEY_LEFT) ||
         (key == KEY_DOWN) || (key == KEY_RIGHT) || (key == KEY_ESCAPE))
 		move(frac, key);
 	else if (key == KEY_ANSI_Z)

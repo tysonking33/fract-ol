@@ -6,7 +6,6 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:06:10 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/21 15:02:10 by tytang           ###   ########.fr       */
 /*   Updated: 2022/11/24 16:15:50 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -45,7 +44,7 @@ void create_frac(t_fractol *frac)
 int main(int argc, char **argv)
 {
 	t_fractol	*frac;
-	
+
 	write(STDOUT_FILENO, "\e[1;1H\e[2J", 12);
 	if (argc == 2)
 	{
@@ -72,11 +71,3 @@ int main(int argc, char **argv)
 	display_instructions(frac);
     free(frac);
 }
-
-
-			error();
-		frac->var.frac_type = check_type(argv[1]);
-		if (frac->var.frac_type == 0)
-		{
-			display_instructions(argv[1], frac->var.frac_type);		
-

@@ -6,14 +6,14 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:51:23 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/23 13:51:25 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/24 17:21:47 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYS_H
 # define KEYS_H
 
-# define MAX_ITERATIONS	100
+# define MAX_ITERATIONS	800
 # define SCROLL_UP		(0x04)
 # define SCROLL_DOWN	(0x05)
 # define WIDTH			1080
