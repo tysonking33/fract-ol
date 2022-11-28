@@ -6,16 +6,20 @@
 /*   By: tytang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:44:45 by tytang            #+#    #+#             */
-/*   Updated: 2022/11/24 17:21:23 by tytang           ###   ########.fr       */
+/*   Updated: 2022/11/28 14:32:28 by tytang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
+# include <stdio.h>
+# include "../libft/libft.h"
+# include "../mlx/mlx.h"
+# include "keys.h"
 
 typedef struct s_colour
 {
@@ -66,6 +70,8 @@ typedef struct s_fractol
 	t_variable	var;
 	t_image		img;
 	t_mlx		mlx;
+	int			iter_ctr;
+	int			in_set;
 }			t_fractol;
 
 int		main(int argc, char **argv);
@@ -82,5 +88,9 @@ void	move(t_fractol *frac, int key);
 void	draw_fractol(t_fractol *frac, int colour);
 int		mandelbrot(t_fractol *frac, double real_z, double img_z);
 int		julia(t_fractol *frac, double real_z, double img_z);
+int		burning_ship(t_fractol *frac, double real_z, double img_z);
+int		tritorn(t_fractol *frac, double real_z, double img_z);
+int		find_colour(t_fractol *frac, double real_z, double img_z);
+double	abs_dbl(double value);
 
 #endif
